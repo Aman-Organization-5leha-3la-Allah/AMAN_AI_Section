@@ -26,7 +26,7 @@ The facial recognition system uses DeepFace with two pre-trained models: VGG-Fac
 2-Facenet employs a modified Inception network, generating a 128-dimensional vector optimized for face verification and clustering.
 
 
-Both models are used to generate embeddings for input images, which are then compared against known faces using cosine similarity. By combining results from multiple models, the system improves accuracy and robustness, making it suitable for applications like security, attendance systems, and photo management.
+Both models are used to generate embeddings for input images, which are then compared against known faces using cosine similarity. By combining results from multiple models, the system improves accuracy and robustness, making it suitable for applications .
 
 
 

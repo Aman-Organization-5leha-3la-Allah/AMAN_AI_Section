@@ -17,7 +17,7 @@
      import numpy as np
      ```
    
-     ### 2. **Model Section**
+### 2. **Model Section**
 
 The facial recognition system uses DeepFace with two pre-trained models: VGG-Face and Facenet.
 

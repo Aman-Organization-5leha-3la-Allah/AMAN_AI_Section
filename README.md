@@ -70,89 +70,32 @@ our code provides an end-to-end implementation of a facial recognition system us
 -----------------------------------
 
 ### Second: AI API Documentation
-AI_API Documentation for Missing Children Recognition
-Overview
+**Overview**
 This API allows users to upload images to find potential matches in a dataset of missing children. The AI model compares the uploaded image with the dataset and returns whether there is a match or if the image is new. If no match is found, the API can save the image into the dataset for future reference.
 
-`Base URL`
+**Base URL**
 The API is hosted locally and can be accessed via a public tunnel when running. For example:
 
-```vbnet
-https://<your-public-tunnel>.loca.lt ```
+ - **Code:**
+     ```vbnet
+     https://<your-public-tunnel>.loca.lt
+     ```
+  -**Authentication**  
+Currently, the API does not require authentication for use, as it is designed for local or private use. If security is required in the future, consider implementing OAuth or an API key system
 
-### Authentication
-
-Currently, the API does not require authentication for use, as it is designed for local or private use. If security is required in the future, consider implementing OAuth or an API key system.
-
-### Endpoints
-1. Image Matching
-POST /image/match
+#**Endpoints**
+**1. Image Matching**
+**POST /image/match**
 Upload an image to match against the missing children dataset.
 
-# Request:
+Request:
 
-# Endpoint: /image/match
-# Method: POST
-# Headers:
-``` json
-
-{
+**Endpoint**: `/image/match`
+**Method**: `POST`
+**Headers**:
+     ```json
+     {
   "Content-Type": "multipart/form-data"
-}```
-
-Body: You should upload an image file using a multipart/form-data request.
-
-### Response:
-Success (200):
-
-json
-Copy code
-{
-  "match_found": true,
-  "matched_name": "John Doe",
-  "confidence_score": 0.95
 }
-If a match is found, the response will return the name of the missing child and a confidence score.
-
-No Match (200):
-
-json
-Copy code
-{
-  "match_found": false,
-  "message": "No match found. Image added to the dataset."
-}
-If no match is found, the image will be saved in the dataset for future queries.
-
-2. Dataset Management (Future Feature)
-This endpoint can be used for managing the dataset of missing children. Currently not implemented but possible enhancements could include:
-
-GET /dataset/images
-Retrieve all images stored in the dataset for review or management.
-
-DELETE /dataset/image/{image_id}
-Remove an image from the dataset.
-
-Example Code
-Python Example
-python
-Copy code
-import requests
-
-url = 'https://<your-public-tunnel>.loca.lt/image/match'
-image_path = 'path/to/your/image.jpg'
-files = {'file': open(image_path, 'rb')}
-
-response = requests.post(url, files=files)
-
-print(response.json())
-Running Locally
-To run the API locally and expose it using a public tunnel:
-
-Install the required libraries (e.g., streamlit, localtunnel).
-Run the following command:
-bash
-Copy code
-streamlit run app.py & npx localtunnel --port 8501
-Access the publicly available URL provided by localtunnel.
+     ```
 

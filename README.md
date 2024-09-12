@@ -155,11 +155,11 @@ To get your public IP address (if needed for other configurations), use:
 
 `curl ipv4.icanhazip.com`
 
- 
+ ---------------------------------------------------
 ### How To Use Our Deployment:
 
 
-## 1- First you need to open this link((https://shaky-cities-cheat.loca.lt) :
+## 1- First you need to open this link(https://shaky-cities-cheat.loca.lt) :
 
 ![image](https://github.com/user-attachments/assets/18d10a1c-23ae-424c-9485-cf55d3d3f4c7)
 

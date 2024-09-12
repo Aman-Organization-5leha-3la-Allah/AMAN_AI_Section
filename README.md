@@ -120,9 +120,9 @@ Install Localtunnel using npm:
       - `file (required)` : The image file to be uploaded. Accepts jpg, jpeg, and png formats.
         
 - Response:
-    - OK: If a match is found, returns the name of the matched image.
-    - OK: If no match is found, indicates that the new image has been added to the dataset.
-    - Bad Request: If the uploaded file is not in an accepted format.
+    - `OK` : If a match is found, returns the name of the matched image.
+    - `OK` : If no match is found, indicates that the new image has been added to the dataset.
+    - `Bad Request` : If the uploaded file is not in an accepted format.
 
 
  ### Running the API
@@ -159,7 +159,8 @@ To get your public IP address (if needed for other configurations), use:
 ### How To Use Our Deployment:
 
 
-## 1- First you need to open this link(https://shaky-cities-cheat.loca.lt) :
+## 1- First you need to open this link :
+(https://shaky-cities-cheat.loca.lt) 
 
 ![image](https://github.com/user-attachments/assets/18d10a1c-23ae-424c-9485-cf55d3d3f4c7)
 

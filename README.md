@@ -101,7 +101,7 @@ Description: Renders the main page with forms for uploading images for training 
 Response: HTML page with forms.
 
 
-2. Add to Training Dataset (/add_to_training)
+2. Add to Training Dataset
 
  Method: POST
 
@@ -135,7 +135,7 @@ Notes:
 
 
 
-3. Compare Test Image (/compare)
+3. Compare Test Image 
 
 Method: POST
 
@@ -180,14 +180,14 @@ Usage:
 Access the URL where the Flask app is running (e.g., http://localhost:5001) to interact with the forms for training and testing images.
 
 
-Add to Training Dataset (/add_to_training)
+Add to Training Dataset 
 
 Request Example:
 
 Form Data: Upload multiple image files under the train_images field.
 
 
-Compare Test Image (/compare)
+Compare Test Image 
 
 Request Example:
 

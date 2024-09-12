@@ -70,154 +70,87 @@ our code provides an end-to-end implementation of a facial recognition system us
 -----------------------------------
 
 ### Second: AI API Documentation
+AI_API Documentation for Missing Children Recognition
+Overview
+This API allows users to upload images to find potential matches in a dataset of missing children. The AI model compares the uploaded image with the dataset and returns whether there is a match or if the image is new. If no match is found, the API can save the image into the dataset for future reference.
 
-This documentation outlines the API for a facial recognition system built using Flask and FaceNet. The API supports uploading images to add to a training dataset and comparing a test image with all images in the dataset.
+Base URL
+The API is hosted locally and can be accessed via a public tunnel when running. For example:
 
-# Overview
+vbnet
+Copy code
+https://<your-public-tunnel>.loca.lt
+Authentication
+Currently, the API does not require authentication for use, as it is designed for local or private use. If security is required in the future, consider implementing OAuth or an API key system.
 
-Purpose:
-To add images to a training dataset and compare a test image against the dataset using FaceNet embeddings.
+Endpoints
+1. Image Matching
+POST /image/match
+Upload an image to match against the missing children dataset.
 
+Request:
 
-# Technologies Used:
-
-1. Flask: Web framework for building the API.
-
-2. FaceNet: Pre-trained model for generating face embeddings.
-
-3. TensorFlow and Keras: Libraries for model processing.
-
-4. SciPy: For calculating Euclidean distance.
-
-
-# Endpoints
-
-1. Home Page (/)
-
-Method: GET
-
-Description: Renders the main page with forms for uploading images for training and testing.
-
-Response: HTML page with forms.
-
-
-2. Add to Training Dataset
-
- Method: POST
-
-Description: Uploads images to be added to the training dataset.
-
-Parameters:
-
-train_images: Multiple image files to be added to the training set.
-
-
-# Response:
-
-Success:
-
-`{
-  "message": "Training images added successfully."
-}`
-
-Error:
-
-`{
-  "error": "Error message"
-}`
-
-
-Notes:
-
-- Images are saved to the training_data directory.
-
-- Embeddings and image names are stored in embeddings.npy and names.npy respectively.
-
-
-
-3. Compare Test Image 
-
+Endpoint: /image/match
 Method: POST
-
-Description: Uploads a test image and compares it with all images in the training dataset.
-
-Parameters:
-
-test_image: The image file to be tested.
-
-
+Headers:
+json
+Copy code
+{
+  "Content-Type": "multipart/form-data"
+}
+Body: You should upload an image file using a multipart/form-data request.
 Response:
 
-Success:
+Success (200):
 
-`{
-  "similarities": [
-    "Similarity with image1: 0.1234",
-    "Similarity with image2: 0.5678"
-  ]
-}`
+json
+Copy code
+{
+  "match_found": true,
+  "matched_name": "John Doe",
+  "confidence_score": 0.95
+}
+If a match is found, the response will return the name of the missing child and a confidence score.
 
-Error:
+No Match (200):
 
-`{
-  "error": "Error message"
-}`
+json
+Copy code
+{
+  "match_found": false,
+  "message": "No match found. Image added to the dataset."
+}
+If no match is found, the image will be saved in the dataset for future queries.
 
+2. Dataset Management (Future Feature)
+This endpoint can be used for managing the dataset of missing children. Currently not implemented but possible enhancements could include:
 
-Notes:
+GET /dataset/images
+Retrieve all images stored in the dataset for review or management.
 
-Compares the test image with all stored embeddings and calculates Euclidean distances.
+DELETE /dataset/image/{image_id}
+Remove an image from the dataset.
 
-Returns a list of similarity scores for each image in the training dataset.
+Example Code
+Python Example
+python
+Copy code
+import requests
 
+url = 'https://<your-public-tunnel>.loca.lt/image/match'
+image_path = 'path/to/your/image.jpg'
+files = {'file': open(image_path, 'rb')}
 
-Detailed API Usage
+response = requests.post(url, files=files)
 
-Home Page (/)
+print(response.json())
+Running Locally
+To run the API locally and expose it using a public tunnel:
 
-Usage:
-
-Access the URL where the Flask app is running (e.g., http://localhost:5001) to interact with the forms for training and testing images.
-
-
-Add to Training Dataset 
-
-Request Example:
-
-Form Data: Upload multiple image files under the train_images field.
-
-
-Compare Test Image 
-
-Request Example:
-
-Form Data: Upload a single image file under the test_image field.
-
-
-Error Handling
-
-File Not Found:
-
-`{
-  "error": "File not found."
-}`
-
-Invalid File Type:
-
-`{
-  "error": "Invalid file type. Only png, jpg, and jpeg are allowed."
-}`
-
-Missing Parameters:
-
-`{
-  "error": "Required parameters are missing."
-}`
-
-
-
-Summary
-
-The AI API provides a way to dynamically add images to a facial recognition training dataset and compare new images against this dataset. It uses FaceNet for generating embeddings and calculates similarity based on Euclidean distance. The API is accessible through a web interface built with Flask, and results are returned in JSON format for ease of integration and analysis.
-
+Install the required libraries (e.g., streamlit, localtunnel).
+Run the following command:
+bash
+Copy code
+streamlit run app.py & npx localtunnel --port 8501
+Access the publicly available URL provided by localtunnel.
 

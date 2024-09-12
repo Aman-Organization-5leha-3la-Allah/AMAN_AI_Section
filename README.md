@@ -80,6 +80,7 @@ our code provides an end-to-end implementation of a facial recognition system us
 -----------------------------------
 ### Second :  AI API Documentation
 
+
 # Overview
 
 This documentation provides an overview of the AI API designed to perform facial recognition for missing children. The API allows users to upload images and find matches against a dataset of known images. If no match is found, the new image is added to the dataset for future comparisons. This documentation outlines the steps to deploy a Streamlit application using Localtunnel. The Streamlit app is accessible via a public URL, allowing external access and testing.
@@ -103,6 +104,7 @@ Before using the API, ensure that the following packages are installed:
 To expose your Streamlit app to the internet, follow these steps:
 ** Install Localtunnel Globally **
 Install Localtunnel using npm:
+
 `!npm install -g localtunnel`
 
 # API Endpoints
@@ -112,17 +114,45 @@ Install Localtunnel using npm:
 Description: Upload an image to be processed for facial recognition.
 - Request:
    - Form-data:
+
 `file` (required): The image file to be uploaded. Accepts jpg, jpeg, and png formats.
 - Response:
     - OK: If a match is found, returns the name of the matched image.
     - OK: If no match is found, indicates that the new image has been added to the dataset.
     - Bad Request: If the uploaded file is not in an accepted format.
+
+
+ ### Running the API
+
+**Streamlit Application**
+
+**Create and Write Streamlit App :**
+- Create a file named `app.py `
+- Save the app using:
+`%%writefile app.py`
+
+
+**Run Streamlit App :**
+1. Start your Streamlit app and redirect all output to `logs.txt`:
+
+```!streamlit run app.py &>/content/logs.txt &
+```
+2. This command runs the Streamlit server in the background, allowing you to continue using the terminal.
+   
+**Expose Streamlit App with Localtunnel**
+Use Localtunnel to create a public URL for your Streamlit app running on port 8501:
+`npx localtunnel --port 8501 &`
+3. Localtunnel will provide you with a URL that can be accessed from anywhere on the internet.
+
+**Retrieve Public IP Address ()**
+To get your public IP address (if needed for other configurations), use:
+`curl ipv4.icanhazip.com`
+
  
-    - 
 ### How To Use Our Deployment:
 
 
-## 1- First you need to open this link :
+## 1- First you need to open this link((https://shaky-cities-cheat.loca.lt) :
 
 ![image](https://github.com/user-attachments/assets/18d10a1c-23ae-424c-9485-cf55d3d3f4c7)
 

@@ -78,7 +78,8 @@ Both models are used to generate embeddings for input images, which are then com
 our code provides an end-to-end implementation of a facial recognition system using `DeepFace` and `dlib`. It includes functionalities for face alignment, image preprocessing, similarity calculation, training data updates, and facial search with visual feedback on matched images.
 
 -----------------------------------
-### How to use our deployment
+### How To Use Our Deployment:
+
 
 **1- First you need to open this link**
 

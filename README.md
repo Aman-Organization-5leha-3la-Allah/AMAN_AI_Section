@@ -74,33 +74,35 @@ AI_API Documentation for Missing Children Recognition
 Overview
 This API allows users to upload images to find potential matches in a dataset of missing children. The AI model compares the uploaded image with the dataset and returns whether there is a match or if the image is new. If no match is found, the API can save the image into the dataset for future reference.
 
-Base URL
+`Base URL`
 The API is hosted locally and can be accessed via a public tunnel when running. For example:
 
-vbnet
-Copy code
-https://<your-public-tunnel>.loca.lt
-Authentication
+```vbnet
+https://<your-public-tunnel>.loca.lt ```
+
+### Authentication
+
 Currently, the API does not require authentication for use, as it is designed for local or private use. If security is required in the future, consider implementing OAuth or an API key system.
 
-Endpoints
+### Endpoints
 1. Image Matching
 POST /image/match
 Upload an image to match against the missing children dataset.
 
-Request:
+# Request:
 
-Endpoint: /image/match
-Method: POST
-Headers:
-json
-Copy code
+# Endpoint: /image/match
+# Method: POST
+# Headers:
+``` json
+
 {
   "Content-Type": "multipart/form-data"
-}
-Body: You should upload an image file using a multipart/form-data request.
-Response:
+}```
 
+Body: You should upload an image file using a multipart/form-data request.
+
+### Response:
 Success (200):
 
 json

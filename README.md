@@ -99,12 +99,12 @@ our code provides an end-to-end implementation of a facial recognition system us
 
 
 **4-Fourth if the image not match other images , added the image to the dataset**
+
 ![image](https://github.com/user-attachments/assets/07fd4c75-a012-4eaa-8f47-bcffd1e7354b)
 
 
 
 **5-Fifth if the image matched another image , say that this image matched to image in our dataset**
-
 
 
 

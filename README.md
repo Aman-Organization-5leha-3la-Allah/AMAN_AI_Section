@@ -78,6 +78,47 @@ Both models are used to generate embeddings for input images, which are then com
 our code provides an end-to-end implementation of a facial recognition system using `DeepFace` and `dlib`. It includes functionalities for face alignment, image preprocessing, similarity calculation, training data updates, and facial search with visual feedback on matched images.
 
 -----------------------------------
+### Second :  AI API Documentation
+
+# Overview
+
+This documentation provides an overview of the AI API designed to perform facial recognition for missing children. The API allows users to upload images and find matches against a dataset of known images. If no match is found, the new image is added to the dataset for future comparisons. This documentation outlines the steps to deploy a Streamlit application using Localtunnel. The Streamlit app is accessible via a public URL, allowing external access and testing.
+
+# Features
+
+- **Facial Recognition** : Identify and match faces in uploaded images against a dataset of known images.
+- **Image Upload** : Upload an image to be processed.
+- **Dataset Management** : Automatically add new images to the dataset if no match is found.
+  
+# Requirements
+
+Before using the API, ensure that the following packages are installed:
+
+- **streamlit**: For creating the web interface.
+- **face_recognition**: For facial recognition tasks.
+- **Pillow** : For image processing.
+  
+# Setting Up Localtunnel
+
+To expose your Streamlit app to the internet, follow these steps:
+** Install Localtunnel Globally **
+Install Localtunnel using npm:
+`!npm install -g localtunnel`
+
+# API Endpoints
+1. Upload Image and Facial Recognition
+- Endpoint: `/upload `
+- Method: POST
+Description: Upload an image to be processed for facial recognition.
+- Request:
+   - Form-data:
+`file` (required): The image file to be uploaded. Accepts jpg, jpeg, and png formats.
+- Response:
+    - OK: If a match is found, returns the name of the matched image.
+    - OK: If no match is found, indicates that the new image has been added to the dataset.
+    - Bad Request: If the uploaded file is not in an accepted format.
+ 
+    - 
 ### How To Use Our Deployment:
 
 

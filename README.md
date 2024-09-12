@@ -1,7 +1,7 @@
 Child_Find
  -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### About The Project
+### First: About The Project
 The thought of a family member, a friend or someone else you care about going missing can be terrifying. This project aims to help find your loved ones using Face Recognition Technology. If someone you know is missing, then,
 
 Register the missing person with us.
@@ -79,7 +79,7 @@ our code provides an end-to-end implementation of a facial recognition system us
 
 -----------------------------------
 
-### Second: AI API Documentation
+
 
 
 

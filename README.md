@@ -102,7 +102,9 @@ Before using the API, ensure that the following packages are installed:
 # Setting Up Localtunnel
 
 To expose your Streamlit app to the internet, follow these steps:
-** Install Localtunnel Globally **
+
+**Install Localtunnel Globally**
+
 Install Localtunnel using npm:
 
 `!npm install -g localtunnel`
@@ -111,11 +113,12 @@ Install Localtunnel using npm:
 1. Upload Image and Facial Recognition
 - Endpoint: `/upload `
 - Method: POST
-Description: Upload an image to be processed for facial recognition.
+- Description: Upload an image to be processed for facial recognition.
 - Request:
    - Form-data:
-
-`file` (required): The image file to be uploaded. Accepts jpg, jpeg, and png formats.
+     
+      - `file (required)` : The image file to be uploaded. Accepts jpg, jpeg, and png formats.
+        
 - Response:
     - OK: If a match is found, returns the name of the matched image.
     - OK: If no match is found, indicates that the new image has been added to the dataset.

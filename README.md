@@ -1,4 +1,4 @@
-### Ai code Documentation
+### First: Ai code Documentation
 
 #### 1. **Installation and Imports**
    - **Purpose:** Installs necessary libraries (`face_recognition` and `deepface`) and imports required modules.
@@ -69,7 +69,7 @@ our code provides an end-to-end implementation of a facial recognition system us
 
 -----------------------------------
 
-### AI API Documentation
+### Second: AI API Documentation
 
 This documentation outlines the API for a facial recognition system built using Flask and FaceNet. The API supports uploading images to add to a training dataset and comparing a test image with all images in the dataset.
 

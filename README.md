@@ -68,7 +68,7 @@ Both models are used to generate embeddings for input images, which are then com
 our code provides an end-to-end implementation of a facial recognition system using `DeepFace` and `dlib`. It includes functionalities for face alignment, image preprocessing, similarity calculation, training data updates, and facial search with visual feedback on matched images.
 
 
-AI API Documentation
+### AI API Documentation
 
 This documentation provides an overview of the AI API designed for a facial recognition system. The system allows users to upload images to build a training dataset and then upload a test image to compare with all images in the training dataset using a pre-trained FaceNet model.
 

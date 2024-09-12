@@ -2,37 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResNet Image Classifier</title>
+    <title>Facial Recognition Training and Testing</title>
 </head>
 <body>
-    <h1>Upload an Image for Prediction</h1>
-    <form action="/predict" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*" required>
-        <button type="submit">Upload and Predict</button>
+    <h1>Facial Recognition System</h1>
+
+    <!-- Form to upload images for training -->
+    <h2>Upload Images to Add to Training Dataset</h2>
+    <form id="train-form" method="POST" enctype="multipart/form-data">
+        <input type="file" name="train_images" accept="image/*" multiple required>
+        <button type="submit">Add to Training</button>
     </form>
 
-    <div id="result"></div>
+    <div id="train-result"></div>
+
+    <!-- Form to upload a test image -->
+    <h2>Upload an Image for Testing</h2>
+    <form id="test-form" method="POST" enctype="multipart/form-data">
+        <input type="file" name="test_image" accept="image/*" required>
+        <button type="submit">Compare with Training Data</button>
+    </form>
+
+    <div id="test-result"></div>
 
     <script>
-        // Handle form submission and display result
-        document.querySelector('form').addEventListener('submit', async function(event) {
+        // Handle form submission for training images
+        document.getElementById('train-form').addEventListener('submit', async function(event) {
             event.preventDefault();
 
             const formData = new FormData(event.target);
-            const response = await fetch('/predict', {
+            const response = await fetch('/add_to_training', {
                 method: 'POST',
                 body: formData
             });
 
             const result = await response.json();
-            const resultDiv = document.getElementById('result');
+            document.getElementById('train-result').textContent = result.message || 'Training images added successfully.';
+        });
 
-            if (result.prediction !== undefined) {
-                resultDiv.textContent = `Prediction: ${result.prediction}`;
-            } else if (result.error) {
-                resultDiv.textContent = `Error: ${result.error}`;
-            }
+        // Handle form submission for test image
+        document.getElementById('test-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const response = await fetch('/compare', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            document.getElementById('test-result').textContent = result.message || result.similarities;
         });
     </script>
 </body>

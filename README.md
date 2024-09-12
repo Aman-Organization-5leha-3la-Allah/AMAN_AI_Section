@@ -81,31 +81,33 @@ our code provides an end-to-end implementation of a facial recognition system us
 ### How To Use Our Deployment:
 
 
-**1- First you need to open this link**
+## 1- First you need to open this link :
 
 ![image](https://github.com/user-attachments/assets/18d10a1c-23ae-424c-9485-cf55d3d3f4c7)
 
 
 
-**2- Second you need to enter the password**
+## 2- Second you need to enter the password :
 
 ![image](https://github.com/user-attachments/assets/d5bf4eb5-cc87-4d4a-8949-12c4e3a9fcdc)
 
 
 
-**3-Third upload the image you need to know if it matches another image or not**
+## 3-Third upload the image you need to know if it matches another image or not :
+
 
 ![image](https://github.com/user-attachments/assets/5ab98b83-6440-4cf2-b668-df36a272ca4d)
 
 
 
-**4-Fourth if the image not match other images , added the image to the dataset**
+## 4-Fourth if the image not match other images , added the image to the dataset :
+
 
 ![image](https://github.com/user-attachments/assets/07fd4c75-a012-4eaa-8f47-bcffd1e7354b)
 
 
 
-**5-Fifth if the image matched another image , say that this image matched to image in our dataset**
+## 5-Fifth if the image matched another image , say that this image matched to image in our dataset :
 
 
 ![image](https://github.com/Aman-Organization-5leha-3la-Allah/AMAN_AI_Section/blob/main/Matched_images/matched_.jpg)

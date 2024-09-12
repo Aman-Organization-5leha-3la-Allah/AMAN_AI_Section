@@ -77,45 +77,6 @@ Overview
 
 Purpose: This API allows users to add images to a training dataset and compare a test image with the training images to calculate similarity scores.
 
-Libraries Used: Flask, Keras-FaceNet, TensorFlow, SciPy.
-
-Endpoints:
-
-/ - Home page with forms to upload training and test images.
-
-/add_to_training - Endpoint to add images to the training dataset.
-
-/compare - Endpoint to compare a test image with all training images.
-
-
-
-Requirements
-
-Ensure the following packages are installed:
-
-pip install flask keras-facenet tensorflow scipy
-
-File Structure
-
-1. app.py: The main Flask application file, defining routes and implementing the functionality for adding images to the training dataset and comparing images.
-
-
-2. index.html: The HTML file that provides a user interface for uploading images for training and testing.
-
-
-
-API Endpoints
-
-1. Home Page (/)
-
-Method: GET
-
-Description: Renders the home page with forms to upload training images and a test image.
-
-Response: Renders index.html.
-
-
-2. Add to Training (/add_to_training)
 
 Method: POST
 
@@ -182,52 +143,3 @@ Initialization:
 Initializes the Flask app and loads the FaceNet model.
 
 Sets up directories for storing training images and embeddings.
-
-
-Helper Functions:
-
-allowed_file(filename): Checks if the uploaded file has an allowed extension (png, jpg, jpeg).
-
-preprocess_image(img_path): Preprocesses images to the correct size (160x160) and normalizes them for the FaceNet model.
-
-get_embedding(img_path): Generates an embedding vector (128-dimensional) for the given image using the FaceNet model.
-
-
-Routes:
-
-/ Route: Renders index.html which contains forms for uploading training and test images.
-
-/add_to_training Route:
-
-Accepts multiple images for training.
-
-Saves the images and extracts embeddings to add to the dataset.
-
-Saves embeddings and image names to .npy files.
-
-
-/compare Route:
-
-Accepts a test image and extracts its embedding.
-
-Compares the test embedding with all training embeddings using Euclidean distance.
-
-Returns similarity scores indicating how closely the test image matches each training image.
-
-
-
-
-2. HTML Interface (index.html)
-
-Description: Provides a user-friendly interface for uploading images for training and testing.
-
-Form Elements:
-
-Training Form: Allows users to upload multiple images to add to the training dataset.
-
-Testing Form: Allows users to upload a test image to compare against the training dataset.
-
-
-JavaScript:
-
-Handles form submissions asynchronously, sending requests to the API endpoints and displaying the results.

@@ -71,23 +71,56 @@ our code provides an end-to-end implementation of a facial recognition system us
 
 ### AI API Documentation
 
-This documentation provides an overview of the AI API designed for a facial recognition system. The system allows users to upload images to build a training dataset and then upload a test image to compare with all images in the training dataset using a pre-trained FaceNet model.
+This documentation outlines the API for a facial recognition system built using Flask and FaceNet. The API supports uploading images to add to a training dataset and comparing a test image with all images in the dataset.
 
-Overview 
 
-Purpose: This API allows users to add images to a training dataset and compare a test image with the training images to calculate similarity scores.
+---
 
+Overview
+
+Purpose:
+
+To add images to a training dataset and compare a test image against the dataset using FaceNet embeddings.
+
+
+Technologies Used:
+
+Flask: Web framework for building the API.
+
+FaceNet: Pre-trained model for generating face embeddings.
+
+TensorFlow and Keras: Libraries for model processing.
+
+SciPy: For calculating Euclidean distance.
+
+
+
+
+---
+
+Endpoints
+
+1. Home Page (/)
+
+Method: GET
+
+Description: Renders the main page with forms for uploading images for training and testing.
+
+Response: HTML page with forms.
+
+
+2. Add to Training Dataset (/add_to_training)
 
 Method: POST
 
-Description: Adds uploaded images to the training dataset, extracting embeddings using the FaceNet model and saving them for future comparisons.
+Description: Uploads images to be added to the training dataset.
 
 Parameters:
 
-train_images: Multiple image files to add to the training dataset.
+train_images: Multiple image files to be added to the training set.
 
 
-Responses:
+Response:
 
 Success:
 
@@ -98,8 +131,15 @@ Success:
 Error:
 
 {
-  "error": "No images uploaded"
+  "error": "Error message"
 }
+
+
+Notes:
+
+Images are saved to the training_data directory.
+
+Embeddings and image names are stored in embeddings.npy and names.npy respectively.
 
 
 
@@ -107,39 +147,104 @@ Error:
 
 Method: POST
 
-Description: Compares an uploaded test image with all images in the training dataset, calculating similarity scores based on Euclidean distance between embeddings.
+Description: Uploads a test image and compares it with all images in the training dataset.
 
 Parameters:
 
-test_image: A single image file to compare against the training dataset.
+test_image: The image file to be tested.
 
 
-Responses:
+Response:
 
 Success:
 
 {
   "similarities": [
     "Similarity with image1: 0.1234",
-    "Similarity with image2: 0.5678",
-    ...
+    "Similarity with image2: 0.5678"
   ]
 }
 
 Error:
 
 {
-  "error": "No test image uploaded"
+  "error": "Error message"
+}
+
+
+Notes:
+
+Compares the test image with all stored embeddings and calculates Euclidean distances.
+
+Returns a list of similarity scores for each image in the training dataset.
+
+
+
+
+---
+
+Detailed API Usage
+
+Home Page (/)
+
+Usage:
+
+Access the URL where the Flask app is running (e.g., http://localhost:5001) to interact with the forms for training and testing images.
+
+
+
+Add to Training Dataset (/add_to_training)
+
+Request Example:
+
+Form Data: Upload multiple image files under the train_images field.
+
+Example cURL Request:
+
+curl -X POST -F "train_images=@image1.jpg" -F "train_images=@image2.jpg" http://localhost:5001/add_to_training
+
+
+
+Compare Test Image (/compare)
+
+Request Example:
+
+Form Data: Upload a single image file under the test_image field.
+
+Example cURL Request:
+
+curl -X POST -F "test_image=@test_image.jpg" http://localhost:5001/compare
+
+
+
+
+---
+
+Error Handling
+
+File Not Found:
+
+{
+  "error": "File not found."
+}
+
+Invalid File Type:
+
+{
+  "error": "Invalid file type. Only png, jpg, and jpeg are allowed."
+}
+
+Missing Parameters:
+
+{
+  "error": "Required parameters are missing."
 }
 
 
 
-Detailed Code Explanation
+---
 
-1. Flask Application (app.py)
+Summary
 
-Initialization:
+The AI API provides a way to dynamically add images to a facial recognition training dataset and compare new images against this dataset. It uses FaceNet for generating embeddings and calculates similarity based on Euclidean distance. The API is accessible through a web interface built with Flask, and results are returned in JSON format for ease of integration and analysis.
 
-Initializes the Flask app and loads the FaceNet model.
-
-Sets up directories for storing training images and embeddings.

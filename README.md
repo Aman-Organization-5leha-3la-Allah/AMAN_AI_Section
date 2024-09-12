@@ -135,17 +135,21 @@ Description: Upload an image to be processed for facial recognition.
 **Run Streamlit App :**
 1. Start your Streamlit app and redirect all output to `logs.txt`:
 
-```!streamlit run app.py &>/content/logs.txt &
-```
+`!streamlit run app.py &>/content/logs.txt & `
+
 2. This command runs the Streamlit server in the background, allowing you to continue using the terminal.
    
 **Expose Streamlit App with Localtunnel**
 Use Localtunnel to create a public URL for your Streamlit app running on port 8501:
+
 `npx localtunnel --port 8501 &`
+
 3. Localtunnel will provide you with a URL that can be accessed from anywhere on the internet.
 
 **Retrieve Public IP Address ()**
+
 To get your public IP address (if needed for other configurations), use:
+
 `curl ipv4.icanhazip.com`
 
  

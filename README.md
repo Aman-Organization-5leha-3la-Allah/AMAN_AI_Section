@@ -102,6 +102,5 @@ Request:
      ```json
      {
   "Content-Type": "multipart/form-data"
-}
-     ```
+} ```
 

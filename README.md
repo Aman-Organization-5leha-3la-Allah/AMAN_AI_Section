@@ -73,7 +73,6 @@ our code provides an end-to-end implementation of a facial recognition system us
 
 This documentation outlines the API for a facial recognition system built using Flask and FaceNet. The API supports uploading images to add to a training dataset and comparing a test image with all images in the dataset.
 
-
 # Overview
 
 Purpose:
@@ -90,8 +89,6 @@ To add images to a training dataset and compare a test image against the dataset
 
 4. SciPy: For calculating Euclidean distance.
 
-
----
 
 # Endpoints
 
@@ -183,17 +180,11 @@ Usage:
 Access the URL where the Flask app is running (e.g., http://localhost:5001) to interact with the forms for training and testing images.
 
 
-
 Add to Training Dataset (/add_to_training)
 
 Request Example:
 
 Form Data: Upload multiple image files under the train_images field.
-
-Example cURL Request:
-
-curl -X POST -F "train_images=@image1.jpg" -F "train_images=@image2.jpg" http://localhost:5001/add_to_training
-
 
 
 Compare Test Image (/compare)
@@ -202,29 +193,26 @@ Request Example:
 
 Form Data: Upload a single image file under the test_image field.
 
-Example cURL Request:
-
-curl -X POST -F "test_image=@test_image.jpg" http://localhost:5001/compare
 
 Error Handling
 
 File Not Found:
 
-```json{
+`{
   "error": "File not found."
-}```
+}`
 
 Invalid File Type:
 
-```json{
+`{
   "error": "Invalid file type. Only png, jpg, and jpeg are allowed."
-}```
+}`
 
 Missing Parameters:
 
-``` json{
+`{
   "error": "Required parameters are missing."
-}```
+}`
 
 
 

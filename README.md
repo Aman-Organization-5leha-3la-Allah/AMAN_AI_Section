@@ -2,12 +2,9 @@ Child_Find
  -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### First: About The Project
-The thought of a family member, a friend or someone else you care about going missing can be terrifying. This project aims to help find your loved ones using Face Recognition Technology. If someone you know is missing, then,
-
-Register the missing person with us.
-Once the background check is done and the missing person is verified, we generate a unique Face ID for the missing person using Azure's Face API.
-When volunteers report a suspected missing person, we verify and generate a Face ID the same way. We then use Azure's Find Similar API to identify a potential match with our database of missing person Face IDs.
-If a match is found we will contact you.
+The thought of a family member, a friend or someone else you care about going missing can be terrifying. This project aims to help find your loved ones using Face Recognition Technology. If someone you know is missing, then, Register the missing person with us.
+Once the background check is done and the missing person is verified, we generate a unique Face ID for the missing person .
+When volunteers report a suspected missing person, we verify and generate a Face ID the same way. We then use Find Similar API to identify a potential match with our database of missing person Face IDs. If a match is found we will contact you.
 
 
 #### 1. **Installation and Imports**
